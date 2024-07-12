@@ -25,18 +25,3 @@ else
 
 <p class="text-light bg-info p-2"> Ten produkt jest: @(_isActive ? "AKTYWNY!" : "NIEAKTYWNY")</p>
 <p class="text-light @(_isActive ? "bg-success" : "bg-danger") p-2"> Ten produkt jest: @(_isActive ? "AKTYWNY!" : "NIEAKTYWNY")</p>
-
-@code {
-    private int currentCount = 0;
-    private bool _isActive = false;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
-
-    private void ToogleActive()
-    {
-        _isActive = !_isActive;
-    }
-}
