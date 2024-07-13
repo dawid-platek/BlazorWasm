@@ -1,9 +1,27 @@
 ﻿@page "/counter"
-
+@page "/counter-test"
+@page "/counter-par/{header:int}/{isDeleted:bool?}"
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
+
+<h2>Wartość parametru: @Header</h2>
+<h2>Wartość parametru2 [from query]: @Header2</h2>
+<h2>IsDeleted: </h2>
+
+@if (!IsDeleted.HasValue)
+{
+    <p>NULL</p>
+}
+else if (IsDeleted.GetValueOrDefault())
+{
+    <p>TRUE</p>
+}
+else
+{
+    <p>FALSE</p>
+}
 
 <p role="status">Current count: @currentCount</p>
 
@@ -31,3 +49,7 @@ else
 
 <Table>
 </Table>
+
+<hr />
+
+<button class="btn btn-primary my-3" @onclick="GoToIndex">Strona główna</button>
