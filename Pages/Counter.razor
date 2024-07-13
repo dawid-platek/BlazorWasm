@@ -53,3 +53,12 @@ else
 <hr />
 
 <button class="btn btn-primary my-3" @onclick="GoToIndex">Strona główna</button>
+
+<h2>Studenci:</h2>
+
+<ul>
+    @foreach (var item in StudentRepo.Get())
+    {
+            <li>@item.Name</li>
+    }
+</ul>

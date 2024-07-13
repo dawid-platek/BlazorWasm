@@ -1,5 +1,4 @@
-﻿
-
+﻿using BlazorWasm.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace BlazorWasm.Pages
@@ -21,8 +20,12 @@ namespace BlazorWasm.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        [Inject]
+        public IStudentRepo StudentRepo { get; set; }
+
         private void IncrementCount()
         {
+            StudentRepo.Add();
             currentCount++;
         }
 
@@ -33,7 +36,7 @@ namespace BlazorWasm.Pages
 
         private void GoToIndex()
         {
-            NavigationManager.NavigateTo("/counter-par/99/true");
+            NavigationManager.NavigateTo("/");
         }
     }
 }
