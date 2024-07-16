@@ -25,10 +25,20 @@ namespace BlazorWasm.Pages
 
         private void IncrementCount()
         {
-            StudentRepo.Add();
-            currentCount++;
-        }
+            try
+            {
+                throw new Exception("Error 123");
 
+                StudentRepo.Add();
+                currentCount++;
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+        }
         private void ToogleActive()
         {
             _isActive = !_isActive;
