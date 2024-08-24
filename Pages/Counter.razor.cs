@@ -27,7 +27,7 @@ namespace BlazorWasm.Pages
         {
             try
             {
-                throw new Exception("Error 123");
+                // throw new Exception("Error 123");
 
                 StudentRepo.Add();
                 currentCount++;
