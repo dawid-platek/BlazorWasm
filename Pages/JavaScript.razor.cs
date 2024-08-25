@@ -7,6 +7,7 @@ namespace BlazorWasm.Pages
     public partial class JavaScript
     {
         private bool _dialogResult = false;
+        private string _currentDate = "";
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
         private async Task DisplayAlert()
@@ -22,6 +23,28 @@ namespace BlazorWasm.Pages
         private async Task ShowResultJs()
         {
             await JSRuntime.InvokeVoidAsync("addNumberJS", 1, 2);
+        }
+
+        [JSInvokable]
+        public static int Add(int number1, int number2)
+        {
+            return number1 + number2;
+        }
+
+        private async Task ShowResultCSharp()
+        {
+            await JSRuntime.InvokeVoidAsync("addNumberCSharp", 11, 22);
+        }
+
+        [JSInvokable]
+        public static string GetCurrentDate()
+        {
+            return DateTime.Now.ToString("dd-MM-yyyy");
+        }
+
+        private async Task ShowDate()
+        {
+            _currentDate = await JSRuntime.InvokeAsync<string>("GetCurrentDateCSharp");
         }
     }
 }
