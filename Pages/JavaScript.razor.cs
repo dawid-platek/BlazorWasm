@@ -55,7 +55,7 @@ namespace BlazorWasm.Pages
             _currentDate = await JSRuntime.InvokeAsync<string>("GetCurrentDateCSharp");
         }
 
-        private async Task ShowResultJSModule()
+        private async Task ShowResultJsModule()
         {
             await _jsModule.InvokeVoidAsync("addNumberJSModule", 1, 12);
         }
