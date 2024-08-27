@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorWasm.Services;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace BlazorWasm.Pages
@@ -12,6 +13,9 @@ namespace BlazorWasm.Pages
 
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
+
+        [Inject]
+        public ToastrService ToastrService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -58,6 +62,10 @@ namespace BlazorWasm.Pages
         private async Task ShowResultJsModule()
         {
             await _jsModule.InvokeVoidAsync("addNumberJSModule", 1, 12);
+        }
+        private async Task ShowToastrNotification()
+        {
+            await ToastrService.ShowInfoMessage("Toastr wywołany w Blazor!");
         }
     }
 }
