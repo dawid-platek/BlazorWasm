@@ -10,3 +10,7 @@ function addNumberCSharp(number1, number2) {
 function GetCurrentDateCSharp() {
     return DotNet.invokeMethodAsync("BlazorWasm", "GetCurrentDate");
 }
+
+function changeBackgroundColor() {
+    document.body.style.background = "lightgreen"
+}

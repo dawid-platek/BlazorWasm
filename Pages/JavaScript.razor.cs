@@ -63,9 +63,15 @@ namespace BlazorWasm.Pages
         {
             await _jsModule.InvokeVoidAsync("addNumberJSModule", 1, 12);
         }
+
         private async Task ShowToastrNotification()
         {
             await ToastrService.ShowInfoMessage("Toastr wywołany w Blazor!");
+        }
+
+        private async Task ChangeBackgroundColor()
+        {
+            await JSRuntime.InvokeVoidAsync("changeBackgroundColor");
         }
     }
 }
