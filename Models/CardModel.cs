@@ -1,19 +1,10 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace BlazorWasm.Components
+﻿namespace BlazorWasm.Models
 {
-    public partial class Card
+    public class CardModel
     {
-        [Parameter]
         public string Image { get; set; }
-
-        [Parameter]
         public string Title { get; set; }
-
-        [Parameter]
         public string Content { get; set; }
-
-        [Parameter]
         public string BtnText { get; set; }
     }
 }
