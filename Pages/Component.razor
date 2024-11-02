@@ -2,20 +2,25 @@
 
 <h3>Component</h3>
 
-<Card Image="/files/kowalski.png"
-      BtnText="Więcej"
-      Title="Jan Kowalski"
-      Content="Programista C#/.NET z 20 letnim doświadczeniem.Specjalista Blazor i ASP.NET Core">
+<CascadingValue Value="@_title" Name="Title">
+    <CascadingValue Value="@_info" Name="Info">
 
-</Card>
+        <Card Image="/files/kowalski.png"
+              BtnText="Więcej"
+              Title="Jan Kowalski"
+              Content="Programista C#/.NET z 20 letnim doświadczeniem.Specjalista Blazor i ASP.NET Core">
+
+        </Card>
+    </CascadingValue>
+</CascadingValue>
 
 <div class="d-flex gap-2">
-     @foreach (var item in _authors)
- {
-    <Card Image="@item.Image"
-    BtnText="@item.BtnText"
-    Title="@item.Title"
-    Content="@item.Content">
-    </Card>
+    @foreach (var item in _authors)
+    {
+        <Card Image="@item.Image"
+              BtnText="@item.BtnText"
+              Title="@item.Title"
+              Content="@item.Content">
+        </Card>
     }
 </div>

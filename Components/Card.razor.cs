@@ -4,6 +4,8 @@ namespace BlazorWasm.Components
 {
     public partial class Card
     {
+
+
         [Parameter]
         public string Image { get; set; }
 
