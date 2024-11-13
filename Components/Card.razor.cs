@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace BlazorWasm.Components
 {
     public partial class Card
     {
-
 
         [Parameter]
         public string Image { get; set; }
@@ -17,5 +17,9 @@ namespace BlazorWasm.Components
 
         [Parameter]
         public string BtnText { get; set; }
+
+        [Parameter]
+        public EventCallback<MouseEventArgs> OnClickMore { get; set; }
+
     }
 }
